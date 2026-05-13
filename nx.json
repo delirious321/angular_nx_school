@@ -22,6 +22,10 @@
     "@angular/build:unit-test": {
       "cache": true,
       "inputs": ["default", "^default"]
+    },
+    "@nx/vitest:test": {
+      "cache": true,
+      "inputs": ["default", "^default"]
     }
   },
   "plugins": [
@@ -44,6 +48,13 @@
       "linter": "eslint",
       "style": "css",
       "unitTestRunner": "vitest-angular"
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "vitest-analog"
+    },
+    "@nx/angular:component": {
+      "style": "css"
     }
   }
 }
