@@ -25,3 +25,5 @@ Thumbs.db
 __screenshots__/
 
 vitest.config.*.timestamp*
+.claude/worktrees
+.claude/settings.local.json
