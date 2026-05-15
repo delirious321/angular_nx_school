@@ -1,7 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input} from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { Pouzivatel } from './pouzivatel.interface'
+
+
+
+
 
 @Component({
   selector: 'lib-karta',
@@ -9,6 +14,8 @@ import { CardModule } from 'primeng/card';
   templateUrl: './karta.html',
   styleUrl: './karta.css',
 })
-export class Karta {}
+export class Karta {
+  pouzivatel = input.required<Pouzivatel>();
+}
 
 

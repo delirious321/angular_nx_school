@@ -1,0 +1,20 @@
+
+{
+  "pouzivatel": [
+    {
+        "meno": "Alojz",
+        "priezvisko": "Hlinka",
+        "email": "alojzkoh@gmail.com"
+    },
+    {
+        "meno": "Ferenc",
+        "priezvisko": "Mrkva",
+        "email": "ferenmr@gmail.com"
+    },
+    {
+        "meno": "Milan",
+        "priezvisko": "Nečír",
+        "email": "milannec@gmail.com"
+    }
+  ]
+}

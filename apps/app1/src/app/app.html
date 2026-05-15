@@ -3,3 +3,19 @@
 <div class="card_grid">
     <p>{{odpovedZbackendu()}}</p>
 </div>
+
+<div>
+    <ul>
+        <ul>
+            @for (pouzivatelia of pouzivateliaBackend(); track pouzivatelia.email) {
+                <h4>{{pouzivatelia.meno}} {{pouzivatelia.priezvisko}}</h4>
+                {{pouzivatelia.email}}
+            }
+            @empty {
+                <h1>error nikto sa nenasiel</h1>
+            }
+        </ul>
+    </ul>
+</div>
+
+<lib-karta [pouzivatel] = "pouzivateliaBackend()[0]"></lib-karta>

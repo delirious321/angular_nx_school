@@ -1,7 +1,9 @@
 import { Component, OnInit, signal, inject} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Karta } from 'shared-ui';
+import { Karta, Pouzivatel, PouzivatelResponse } from 'shared-ui';
 import { HttpClient} from '@angular/common/http';
+
+
 @Component({
   imports: [RouterModule, Karta],
   selector: 'app-root',
@@ -15,7 +17,7 @@ export class App implements OnInit {
 
 
   odpovedZbackendu = signal<string>('nacitavam');
-
+  pouzivateliaBackend = signal<Pouzivatel[]>([]);
   ngOnInit() { 
 
     this.http.get<{ sprava:string }>('http://localhost:8000/status')
@@ -28,9 +30,17 @@ export class App implements OnInit {
           this.odpovedZbackendu.set('Nepodarilo sa')
           console.log(err)
         }
-      }
-    );
+      });
+      this.http.get<PouzivatelResponse>('http://localhost:8000/pouzivatelia')
+      .subscribe({
+        next: (data) => {
+          console.log('toto prislo', data)
+          this.pouzivateliaBackend.set(data.pouzivatel);
 
-      
+        },
+        error: (err) => {
+          console.log("nenajdeny pouzivatelia");
+        }
+      });
   }
 }
