@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SharedUi } from './shared-ui';
+import { Karta } from './karta';
 
-describe('SharedUi', () => {
-  let component: SharedUi;
-  let fixture: ComponentFixture<SharedUi>;
+describe('Karta', () => {
+  let component: Karta;
+  let fixture: ComponentFixture<Karta>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SharedUi],
+      imports: [Karta],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SharedUi);
+    fixture = TestBed.createComponent(Karta);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

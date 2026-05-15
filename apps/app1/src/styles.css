@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* 3. Ikony (ak chceš mať na karte ikonky) */
+@import "primeicons/primeicons.css";
+
+/* 4. Utility triedy (aby si mohol používať 'flex', 'gap-3' atď.) */
+@import "primeflex/primeflex.css";

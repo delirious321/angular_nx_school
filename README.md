@@ -77,3 +77,74 @@ Pre vývoj aplikačného rozhrania bol zvolený **Python** s asynchrónnym frame
 2. Úspešne aktivovať `.venv` v Git Bash/PowerShell a overiť lokálny beh FastAPI servera cez `uvicorn main:app --reload`.
 3. Prepojiť Angular `ApiService` na lokálny endpoint `http://localhost:8000/api/items`.
 4. Implementovať Docker a Docker Compose pre orchestráciu oboch služieb.
+
+
+================================================================================
+          ADR Dockerizácia Angular Nx Monorepa s Nginx Proxy
+================================================================================
+
+STAV: V procese implementácie
+AUTOR: Jakub & Gemini
+DÁTUM: 15. Máj 2026
+
+1. KONTEXT (Problém)
+--------------------
+Potrebujeme nasadiť dve Angular aplikácie (app1, app2) z Nx monorepa do jedného
+Docker kontajnera pomocou Nginxu. Aplikácie musia byť dostupné na:
+- http://localhost:8888/app1/
+- http://localhost:8888/app2/
+
+Výzvou bolo rozdielne nastavenie "outputPath" v project.json a potreba 
+rýchleho buildu bez neustáleho 'npm install'.
+
+2. ARCHITEKTÚRA (ASCII Diagram)
+-------------------------------
+
+      POUŽÍVATEĽ (Prehliadač)
+           |
+           | [Port 8888]
+    _______v_______________________________________________________
+   | Docker Kontajner (Nginx)                                      |
+   |                                                               |
+   |  /app1/  ------>  /usr/share/nginx/html/app1/index.html       |
+   |  /app2/  ------>  /usr/share/nginx/html/app2/index.html       |
+   |_______________________________________________________________|
+           ^
+           | [Multi-stage Build]
+    _______|_______________________________________________________
+   | Build Fáza (Node.js)                                          |
+   |                                                               |
+   |  1. COPY package.json (Cache Layer)                           |
+   |  2. RUN npm ci                                                |
+   |  3. RUN nx build app1 --base-href /app1/                      |
+   |  4. RUN nx build app2 --base-href /app2/                      |
+   |_______________________________________________________________|
+
+
+3. ROZHODNUTIA
+--------------
+
+A. Multi-stage Build: 
+   Rozdelili sme Dockerfile na 'builder' (kde sa kompiluje kód) a finálny 
+   obraz (iba ľahký Nginx so statickými súbormi). Tým sme zmenšili výsledný obraz.
+
+B. Base-Href Smerovanie:
+   Aplikácie buildíme s príznakom `--base-href /appX/`. Toto opravuje "bielu 
+   stránku", pretože Angular vie, že má hľadať skripty v podpriečinku.
+
+C. Nginx Aliasy:
+   V nginx.conf používame `alias` namiesto `root`, aby cesty v URL presne
+   sedeli s fyzickými priečinkami v kontajneri.
+
+D. Optimalizácia Cache:
+   Najprv kopírujeme package.json a inštalujeme závislosti. Až potom zvyšok kódu.
+   Vďaka tomu zmena HTML nespúšťa 7-minútový npm install.
+
+4. DÔSLEDKY
+-----------
+- (+) Rýchly vývoj (build po zmene kódu trvá sekundy).
+- (+) Obe aplikácie bežia pod jedným portom.
+- (-) Nutnosť manuálne pridávať lomku "/" na koniec URL (localhost:8888/app1/).
+- (-) Každá nová appka vyžaduje úpravu v nginx.conf a Dockerfile.
+
+================================================================================

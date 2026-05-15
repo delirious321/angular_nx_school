@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { Karta } from 'shared-ui';
 @Component({
-  imports: [RouterModule],
+  imports: [RouterModule, Karta],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
