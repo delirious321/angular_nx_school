@@ -3,22 +3,25 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 
-app = FastAPI()
+app = FastAPI(title="projekt")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['http://localhost:4200', 'http://127.0.0.1:4200'],
+    allow_origins=['*'],
     allow_methods = ["*"],
     allow_headers = ["*"],
+    allow_credentials = True
 )
 
 
-class User(BaseModel):
+class User(BaseModel):  #pouzivatel trieda
     meno: str
     priezvisko: str
     email: str
 
-
+@app.get("/status")
+def precitaj_status_systemu():
+    return {"sprava": "Backend ide"}
 
     
 @app.post("/users")
