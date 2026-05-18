@@ -1,5 +1,24 @@
 services:
-  moje-web-appky:
-    build: .
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend  # Súbor priamo v roote
     ports:
-      - "8888:80"
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+    environment:
+     - ENV=development
+
+     
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend # Súbor priamo v roote
+    ports:
+      - "80:80"
+      - "81:81"
+    depends_on:
+      - backend

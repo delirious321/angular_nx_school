@@ -1,0 +1,31 @@
+.card {
+    display: flex;
+    border-radius: 25px;
+    justify-content: center;
+    margin-top: 20%;
+}
+
+textarea {
+    padding: 30px;
+    border-radius: 25px;
+    background-color: bisque;
+    box-shadow: 10px 10px 1px 0px rgb(255, 255, 172);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Sheen via pseudo-element workaround using outline glow */
+    background-image: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.15) 100%
+    );
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+}
+
+textarea:hover {
+    transform: translateY(-8px);
+    box-shadow: 10px 18px 8px 0px rgb(255, 255, 172);
+    background-image: none; /* sheen disappears on hover */
+}

@@ -1,10 +1,12 @@
-<p-card title="User" class="block m-2 shadow-2 hover:shadow-4 transition-duration-200">
+<div class="card">
+    
+   <textarea rows="10" cols="100" >
+    {{ pouzivatelService.pouzivatelZbackend()[0].meno }} {{ pouzivatelService.pouzivatelZbackend()[0].priezvisko }} ({{ pouzivatelService.pouzivatelZbackend()[0].email }})
 
-    <div class="flex flex-column gap-2">
 
-        <span class="text-sm text-color-secondary">{{pouzivatel().meno}}</span>
-        <span class="font-semibold text-lg">{{pouzivatel().priezvisko}}</span>
+    {{ pouzivatelService.pouzivatelZbackend()[1].meno }} {{ pouzivatelService.pouzivatelZbackend()[1].priezvisko }} ({{ pouzivatelService.pouzivatelZbackend()[1].email }})
 
-    </div>
-
-</p-card>
+    
+    {{ pouzivatelService.pouzivatelZbackend()[2].meno }} {{ pouzivatelService.pouzivatelZbackend()[2].priezvisko }} ({{ pouzivatelService.pouzivatelZbackend()[2].email }})
+    </textarea>
+</div>
