@@ -6,3 +6,11 @@
 
 /* 4. Utility triedy (aby si mohol používať 'flex', 'gap-3' atď.) */
 @import "primeflex/primeflex.css";
+
+
+
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -14,7 +14,7 @@ app.add_middleware(
     allow_credentials = True
 )
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__)) #moze byt aj priamo cesta data/ kedze mam tam jsony
 
 @app.get("/status")
 def precitaj_status_systemu():
@@ -22,11 +22,19 @@ def precitaj_status_systemu():
 
 @app.get("/pouzivatelia")
 def ziskaj_pouzivatelov():
-    cesta_k_db = os.path.join(CURRENT_DIR, "data", "db.json")
+    cesta_k_db = os.path.join(CURRENT_DIR, "data", "pouzivatelia.json")
     
     with open(cesta_k_db, "r") as subor:
         data_o_pouzivateloch = json.load(subor)
     return data_o_pouzivateloch
 
+
+@app.get("/shop")
+def obchod():
+    cesta_k_obchodu = os.path.join(CURRENT_DIR, "data", "obchod.json")
+    
+    with open(cesta_k_obchodu, "r") as subor:
+        data_obchod = json.load(subor)
+    return data_obchod
 
 

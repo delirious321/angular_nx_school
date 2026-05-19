@@ -1,0 +1,60 @@
+{
+    "grids": [
+        {
+            "meno_produktu": "Počítač",
+            "oddiel_produktu": "Elektronika",
+            "hodnotenie": "4.2/5",
+            "na_sklade": true,
+            "cena": 899.99
+        },
+        {
+            "meno_produktu": "Smartfón",
+            "oddiel_produktu": "Elektronika",
+            "hodnotenie": "4.8/5",
+            "na_sklade": true,
+            "cena": 649.00
+        },
+        {
+            "meno_produktu": "Bezdrôtové slúchadlá",
+            "oddiel_produktu": "Elektronika",
+            "hodnotenie": "4.4/5",
+            "na_sklade": false,
+            "cena": 129.50
+        },
+        {
+            "meno_produktu": "Inteligentné hodinky",
+            "oddiel_produktu": "Elektronika",
+            "hodnotenie": "4.1/5",
+            "na_sklade": true,
+            "cena": 199.00
+        },
+        {
+            "meno_produktu": "Tablet",
+            "oddiel_produktu": "Elektronika",
+            "hodnotenie": "4.3/5",
+            "na_sklade": true,
+            "cena": 349.90
+        },
+        {
+            "meno_produktu": "Herná konzola",
+            "oddiel_produktu": "Elektronika",
+            "hodnotenie": "4.9/5",
+            "na_sklade": false,
+            "cena": 499.00
+        },
+        {
+            "meno_produktu": "Monitor",
+            "oddiel_produktu": "Elektronika",
+            "hodnotenie": "4.5/5",
+            "na_sklade": true,
+            "cena": 229.00
+        },
+        {
+            "meno_produktu": "Nabíjačka",
+            "oddiel_produktu": "Elektronika",
+            "hodnotenie": "4.1/5",
+            "na_sklade": true,
+            "cena": 24.99
+        }
+    ]
+}

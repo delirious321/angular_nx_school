@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Karta } from 'shared-ui';
+import { Karta, Shop } from 'shared-ui';
 export const appRoutes: Routes = [
-    { path: '', component: Karta }
+    { path: '', component: Shop}
 ];

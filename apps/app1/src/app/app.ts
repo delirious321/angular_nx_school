@@ -1,6 +1,6 @@
 import { Component, OnInit, signal, inject} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {Pouzivatel, PouzivatelResponse, PouzivatelService} from 'shared-ui';
+import {Pouzivatel, PouzivatelResponse, ShopGrid, ShopGridResponse, PouzivatelService, ShopGridService} from 'shared-ui';
 import { HttpClient} from '@angular/common/http';
 
 
@@ -15,10 +15,11 @@ export class App implements OnInit {
   
   private http = inject(HttpClient);
   private pouzivatelService = inject(PouzivatelService)
-
+  private shopGridService = inject(ShopGridService)
 
   odpovedZbackendu = signal<string>('nacitavam');
   pouzivateliaBackend = signal<Pouzivatel[]>([]);
+  shopGridyOdpoved = signal<ShopGrid[]>([]);
   ngOnInit() { 
 
     this.http.get<{ sprava:string }>('http://localhost:8000/status')
@@ -42,5 +43,21 @@ export class App implements OnInit {
           console.log("nenajdeny pouzivatelia");
         }
       }); 
+    
+    this.http.get<ShopGridResponse>('http://localhost:8000/shop')
+    .subscribe({
+      next: (data) => {
+        this.shopGridService.ShopGridyOdpoved.set(data.grids);
+        console.log(data.grids)
+      },
+      error: (err) => {
+        console.log('nenaslo sa info  o shopgride');
+      }
+    });
+
+
+
+
   }
+
 }

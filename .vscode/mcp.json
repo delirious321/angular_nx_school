@@ -1,0 +1,10 @@
+{
+	"servers": {
+		"primeng": {
+			"command": "node",
+            "args": ["C:/Users/kbjac/github/angular_nx_school/primeng-mcp-fix"]
+		}
+	}
+}
+
+
