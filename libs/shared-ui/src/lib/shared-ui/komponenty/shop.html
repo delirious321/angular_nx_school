@@ -4,7 +4,7 @@
 
 
 
-<div class="grid md:grid-cols-4 gap-6 p-6 justify-items-center">
+<div class="grid md:grid-cols-4 gap-6 pt-4 px-1 justify-items-center">
   @for (produkt of shopgrid.ShopGridyOdpoved(); track produkt) {
     <lib-karta [karta_info]="produkt"></lib-karta>
   } @empty {

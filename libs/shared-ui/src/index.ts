@@ -1,5 +1,6 @@
 
 export * from './lib/shared-ui/komponenty/profil'
+export * from './lib/shared-ui/komponenty/produkt_detail'
 export * from './lib/shared-ui/komponenty/karta'
 export * from './lib/shared-ui/komponenty/pouzivatel.interface'
 export * from './lib/shared-ui/komponenty/shop.interface'

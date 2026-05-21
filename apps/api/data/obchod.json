@@ -1,60 +1,76 @@
 {
     "grids": [
         {
+            "id": 1,
             "meno_produktu": "Počítač",
             "oddiel_produktu": "Elektronika",
             "hodnotenie": "4.2/5",
             "na_sklade": true,
-            "cena": 899.99
+            "cena": 899.99,
+            "popis": "Výkonný stolný počítač vhodný na prácu aj zábavu. Disponuje rýchlym procesorom, veľkou operačnou pamäťou a priestranným úložiskom pre všetky vaše súbory."
         },
         {
+            "id": 2,
             "meno_produktu": "Smartfón",
             "oddiel_produktu": "Elektronika",
             "hodnotenie": "4.8/5",
             "na_sklade": true,
-            "cena": 649.00
+            "cena": 649.00,
+            "popis": "Moderný smartfón s kvalitným fotoaparátom, dlhou výdržou batérie a plynulým výkonom. Ideálny spoločník pre každodenné použitie."
         },
         {
+            "id": 3,
             "meno_produktu": "Bezdrôtové slúchadlá",
             "oddiel_produktu": "Elektronika",
             "hodnotenie": "4.4/5",
             "na_sklade": false,
-            "cena": 129.50
+            "cena": 129.50,
+            "popis": "Prémiové bezdrôtové slúchadlá s potlačením okolitého hluku. Poskytujú čistý zvuk a pohodlné nosenie aj pri dlhšom počúvaní."
         },
         {
+            "id": 4,
             "meno_produktu": "Inteligentné hodinky",
             "oddiel_produktu": "Elektronika",
             "hodnotenie": "4.1/5",
             "na_sklade": true,
-            "cena": 199.00
+            "cena": 199.00,
+            "popis": "Štýlové inteligentné hodinky so sledovaním zdravia, krokomeru a upozorneniami zo smartfónu. Vodotesné prevedenie vhodné aj na šport."
         },
         {
+            "id": 5,
             "meno_produktu": "Tablet",
             "oddiel_produktu": "Elektronika",
             "hodnotenie": "4.3/5",
             "na_sklade": true,
-            "cena": 349.90
+            "cena": 349.90,
+            "popis": "Ľahký a výkonný tablet s veľkým displejom. Perfektný na sledovanie filmov, čítanie, prácu aj kreatívne činnosti kdekoľvek na cestách."
         },
         {
+            "id": 6,
             "meno_produktu": "Herná konzola",
             "oddiel_produktu": "Elektronika",
             "hodnotenie": "4.9/5",
             "na_sklade": false,
-            "cena": 499.00
+            "cena": 499.00,
+            "popis": "Najnovšia herná konzola s neuveriteľnou grafikou a rozsiahlou knižnicou hier. Prináša nezabudnuteľný herný zážitok pre celú rodinu."
         },
         {
+            "id": 7,
             "meno_produktu": "Monitor",
             "oddiel_produktu": "Elektronika",
             "hodnotenie": "4.5/5",
             "na_sklade": true,
-            "cena": 229.00
+            "cena": 229.00,
+            "popis": "Ostrý a farebne verný monitor s vysokým rozlíšením a rýchlou odozvou. Vhodný na prácu v kancelárii aj na hranie hier."
         },
         {
+            "id": 8,
             "meno_produktu": "Nabíjačka",
             "oddiel_produktu": "Elektronika",
             "hodnotenie": "4.1/5",
             "na_sklade": true,
-            "cena": 24.99
+            "cena": 24.99,
+            "popis": "Rýchla univerzálna nabíjačka kompatibilná s väčšinou zariadení. Kompaktná veľkosť umožňuje pohodlné nosenie v taške alebo vrecku."
         }
     ]
 }

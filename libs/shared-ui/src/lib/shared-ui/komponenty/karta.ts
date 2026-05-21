@@ -8,12 +8,13 @@ import { ViewEncapsulation } from '@angular/core'
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
 import { TagModule } from 'primeng/tag';
+import { RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'lib-karta',
-  imports: [CommonModule,CardModule,ButtonModule, DividerModule, TagModule, RatingModule, FormsModule],
+  imports: [CommonModule,CardModule,ButtonModule, DividerModule, TagModule, RatingModule, FormsModule, RouterLink],
   templateUrl: './karta.html',
   
 })
@@ -21,6 +22,10 @@ export class Karta {
   pouzivatelService = inject(PouzivatelService);
   shopgridService = inject(ShopGridService)
   karta_info = input.required<ShopGrid>();
+
+  get hodnotenieCislo(): number {
+    return parseFloat(this.karta_info().hodnotenie.split('/')[0]);
+  }
 }
 
 
