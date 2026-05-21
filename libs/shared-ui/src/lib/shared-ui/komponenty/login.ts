@@ -5,7 +5,6 @@ import { InputTextModule} from 'primeng/inputtext';
   selector: 'lib-login',
   imports: [InputTextModule, FormsModule],
   templateUrl: './login.html',
-  styleUrl: './login.css',
 })
 export class Login {
     value: string | undefined;

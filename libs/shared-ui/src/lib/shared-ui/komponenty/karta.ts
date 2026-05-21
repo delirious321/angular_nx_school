@@ -5,20 +5,22 @@ import { CardModule } from 'primeng/card';
 import { PouzivatelService, Shop, ShopGrid, ShopGridService } from 'shared-ui';
 import { DividerModule } from 'primeng/divider'
 import { ViewEncapsulation } from '@angular/core'
+import { FormsModule } from '@angular/forms';
+import { RatingModule } from 'primeng/rating';
+import { TagModule } from 'primeng/tag';
 
 
 
 @Component({
   selector: 'lib-karta',
-  imports: [CommonModule,CardModule,ButtonModule, DividerModule],
+  imports: [CommonModule,CardModule,ButtonModule, DividerModule, TagModule, RatingModule, FormsModule],
   templateUrl: './karta.html',
-  styleUrl: './karta.css',
-  encapsulation: ViewEncapsulation.None
+  
 })
 export class Karta {
   pouzivatelService = inject(PouzivatelService);
-  shopgrid = inject(ShopGridService)
-  poradie = input.required<ShopGrid>();
+  shopgridService = inject(ShopGridService)
+  karta_info = input.required<ShopGrid>();
 }
 
 

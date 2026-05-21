@@ -1,8 +1,52 @@
- <div class="mb-4 p-8">
-            <p-card header="Simple Card">
-                <p class="m-0">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                    quas!
-                </p>
-            </p-card>
-        </div>
+
+
+<div class="w-72 rounded-2xl overflow-hidden border border-gray-200 bg-white">
+
+  <!-- Image placeholder -->
+  <div class="bg-gray-50 h-52 flex items-center justify-center">
+    <svg class="w-20 h-20 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M6.5 6.5h11M6.5 6.5A2.5 2.5 0 004 9v1a2.5 2.5 0 002.5 2.5h11A2.5 2.5 0 0020 10V9a2.5 2.5 0 00-2.5-2.5M6.5 6.5V5a2 2 0 012-2h7a2 2 0 012 2v1.5" />
+    </svg>
+  </div>
+
+  <!-- Content -->
+  <div class="p-5">
+
+    <!-- Category & Rating -->
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+        {{ karta_info().oddiel_produktu }}
+      </span>
+      <p-rating [ngModel]="karta_info().hodnotenie" [readonly]="true" [stars]="5" />
+    </div>
+
+    <!-- Name -->
+    <h3 class="text-base font-semibold text-gray-900 mb-3">
+      {{ karta_info().meno_produktu }}
+    </h3>
+
+    <!-- Stock -->
+    <div class="mb-4">
+      <p-tag
+        [value]="karta_info().na_sklade ? 'Na sklade' : 'Nie je na sklade'"
+        [severity]="karta_info().na_sklade ? 'success' : 'danger'"
+      />
+    </div>
+
+    <!-- Price & Button -->
+    <div class="flex items-center justify-between">
+      <span class="text-xl font-bold text-gray-900">
+        €{{ karta_info().cena }}
+      </span>
+      <p-button
+        label="Do košíka"
+        icon="pi pi-shopping-cart"
+        [disabled]="!karta_info().na_sklade"
+        size="small"
+      />
+    </div>
+
+  </div>
+</div>
+

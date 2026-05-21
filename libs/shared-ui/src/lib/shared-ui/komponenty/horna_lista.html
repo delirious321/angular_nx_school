@@ -1,1 +1,13 @@
-<p>horna_lista works!</p>
+<div class="card bg-gray-900">
+    <div class="flex items-center justify-between p-10">
+        <p-menubar [model]="items"/>
+        <div class="flex items-center gap-20">
+            <p class="text-xl font-medium ">Vitaj! {{pouzivatelService.pouzivatelZbackend()[0].meno}}</p>
+            <input type="text" pInputText placeholder="Search" class="w-36">
+            <a routerLink="/profil">
+            <p-avatar image="https://placehold.co/40" size="xlarge" shape="circle"/>
+            </a>
+        </div>
+    
+    </div>
+</div>
