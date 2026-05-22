@@ -1,27 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, input} from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { PouzivatelService, Shop, ShopGrid, ShopGridService } from 'shared-ui';
-import { DividerModule } from 'primeng/divider'
-import { ViewEncapsulation } from '@angular/core'
+import { PouzivatelService, ShopGrid, ShopGridService } from 'shared-ui';
+import { DividerModule } from 'primeng/divider';
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
 import { TagModule } from 'primeng/tag';
-import { RouterLink } from '@angular/router';
-
-
 
 @Component({
   selector: 'lib-karta',
-  imports: [CommonModule,CardModule,ButtonModule, DividerModule, TagModule, RatingModule, FormsModule, RouterLink],
+  imports: [CommonModule, CardModule, ButtonModule, DividerModule, TagModule, RatingModule, FormsModule],
   templateUrl: './karta.html',
-  
 })
 export class Karta {
   pouzivatelService = inject(PouzivatelService);
-  shopgridService = inject(ShopGridService)
+  shopgridService = inject(ShopGridService);
   karta_info = input.required<ShopGrid>();
+  vybrata = output<ShopGrid>();
 
   get hodnotenieCislo(): number {
     return parseFloat(this.karta_info().hodnotenie.split('/')[0]);

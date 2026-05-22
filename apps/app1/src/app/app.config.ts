@@ -12,9 +12,15 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideHttpClient(),
     providePrimeNG({
-  theme: {
-    preset: Aura,
-  }
-})
+      theme: {
+        preset: Aura,
+        options: {
+          cssLayer: {
+            name: 'primeng',
+            order: 'theme, base, primeng, utilities' 
+          }
+        }
+      }
+    })
   ],
 };

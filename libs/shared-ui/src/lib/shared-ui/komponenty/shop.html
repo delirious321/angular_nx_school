@@ -2,13 +2,30 @@
   <lib-horna-lista></lib-horna-lista>
 </div>
 
-
-
-<div class="grid md:grid-cols-4 gap-6 pt-4 px-1 justify-items-center">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pt-4 ml-[10px]">
   @for (produkt of shopgrid.ShopGridyOdpoved(); track produkt) {
-    <lib-karta [karta_info]="produkt"></lib-karta>
+    <div class="flex gap-0 rounded-2xl border border-gray-200 bg-white overflow-hidden min-w-[580px]">
+
+      <lib-karta [karta_info]="produkt" (vybrata)="otvorDetail($event)"></lib-karta>
+
+      <div class="flex flex-col gap-3 p-6 flex-1 border-l border-gray-200">
+        <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">{{ produkt.oddiel_produktu }}</span>
+        <h3 class="text-lg font-bold text-gray-900">{{ produkt.meno_produktu }}</h3>
+        <p class="text-sm text-gray-500 leading-relaxed flex-1">{{ produkt.popis }}</p>
+        <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+          <span class="text-xl font-bold text-gray-900">€{{ produkt.cena }}</span>
+          <p-tag
+            [value]="produkt.na_sklade ? 'Na sklade' : 'Nie je na sklade'"
+            [severity]="produkt.na_sklade ? 'success' : 'danger'"
+          />
+        </div>
+        <p-button label="Zobraziť detail" icon="pi pi-arrow-right" iconPos="right" size="small" (onClick)="otvorDetail(produkt)" />
+      </div>
+
+    </div>
   } @empty {
-    <div> nic</div>
+    <div>nic</div>
   }
 </div>
+
 

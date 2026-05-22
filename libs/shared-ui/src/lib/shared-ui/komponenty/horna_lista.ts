@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, input} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 import { PouzivatelService } from '../pouzivatel.service';
@@ -17,11 +17,11 @@ export class HornaLista implements OnInit{
     pouzivatelService = inject(PouzivatelService)
 
 
-
-
-
   items: MenuItem[] | undefined;
+
+
   ngOnInit() {
+    this.pouzivatelService.nacitajPouzivatelov();
     this.items = [
       {
         label: 'Domov',
@@ -58,7 +58,8 @@ export class HornaLista implements OnInit{
         icon: 'pi pi-envelope'
       }
     ];
+
+
   }
-      
   }
 

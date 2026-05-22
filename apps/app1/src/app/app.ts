@@ -47,7 +47,7 @@ export class App implements OnInit {
     this.http.get<ShopGridResponse>('http://localhost:8000/shop')
     .subscribe({
       next: (data) => {
-        this.shopGridService.ShopGridyOdpoved.set(data.grids);
+        this.shopGridService.ShopGridyOdpoved.set(data.grids); //nastavim injector na tuto hodnotu ktoru mozem do hocijakeho komponentu inectnut a pouzit !
         console.log(data.grids)
       },
       error: (err) => {

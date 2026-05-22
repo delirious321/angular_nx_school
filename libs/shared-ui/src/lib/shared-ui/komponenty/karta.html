@@ -1,8 +1,6 @@
- 
- <a [routerLink]="['/produkt']" [state]="{ data: karta_info()}">
-  <div class="w-72 rounded-2xl overflow-hidden border border-gray-200 bg-white">
 
-        <!-- Image placeholder -->
+  <div class="w-72 shrink-0 overflow-hidden bg-white cursor-pointer" (click)="vybrata.emit(karta_info())">
+
         <div class="bg-gray-50 h-52 flex items-center justify-center">
           <svg class="w-20 h-20 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -15,7 +13,7 @@
 
           <!-- Category & Rating -->
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+            <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">
               {{ karta_info().oddiel_produktu }}
             </span>
             <div>
@@ -25,12 +23,12 @@
           </div>
 
           <!-- Name -->
-          <h3 class="text-base font-semibold text-gray-900 mb-3">
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">
             {{ karta_info().meno_produktu }}
           </h3>
 
           <!-- Stock -->
-          <div class="mb-4">
+          <div class="mb-4 text-sm">
             <p-tag
               [value]="karta_info().na_sklade ? 'Na sklade' : 'Nie je na sklade'"
               [severity]="karta_info().na_sklade ? 'success' : 'danger'"
@@ -52,4 +50,3 @@
 
         </div>
       </div>
-  </a>
